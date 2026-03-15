@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import type { ProjectCategory } from '@/lib/constants';
 
 interface ProjectCardProps {
@@ -18,16 +19,17 @@ export default function ProjectCard({ category, index }: ProjectCardProps) {
       transition={{ duration: 0.5, delay: index * 0.08 }}
       className="group relative aspect-[4/3] rounded-sm overflow-hidden cursor-pointer"
     >
-      {/* Gradient background */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-br ${category.gradient} transition-transform duration-700 group-hover:scale-110`}
+      {/* Background image */}
+      <Image
+        src={category.image}
+        alt={category.title}
+        fill
+        className="object-cover transition-transform duration-700 group-hover:scale-110"
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
 
-      {/* Subtle overlay pattern */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.2),transparent_60%)]" />
-
       {/* Dark overlay on hover */}
-      <div className="absolute inset-0 bg-[#0f1b2d]/0 group-hover:bg-[#0f1b2d]/30 transition-all duration-500" />
+      <div className="absolute inset-0 bg-[#0f1b2d]/20 group-hover:bg-[#0f1b2d]/40 transition-all duration-500" />
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col justify-end p-6">
@@ -43,7 +45,7 @@ export default function ProjectCard({ category, index }: ProjectCardProps) {
       </div>
 
       {/* Bottom gradient for text readability */}
-      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/70 to-transparent" />
     </motion.div>
   );
 }

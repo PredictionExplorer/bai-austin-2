@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Logo from './Logo';
 import { navLinks } from '@/lib/constants';
 
 export default function Navbar() {
@@ -16,8 +16,15 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0f1b2d]/95 backdrop-blur-md border-b border-white/5">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Link href="/" className="text-white hover:opacity-90 transition-opacity" aria-label="BAi Home">
-          <Logo className="h-9 w-auto" />
+        <Link href="/" className="hover:opacity-90 transition-opacity" aria-label="BAi Home">
+          <Image
+            src="/images/logo.gif"
+            alt="BAi Acoustics"
+            width={120}
+            height={40}
+            className="h-9 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}

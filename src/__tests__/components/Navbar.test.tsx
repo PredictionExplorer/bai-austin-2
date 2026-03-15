@@ -50,6 +50,13 @@ describe('Navbar', () => {
     expect(homeLink).toHaveAttribute('href', '/');
   });
 
+  it('renders the logo image', () => {
+    render(<Navbar />);
+    const logoImg = screen.getByAltText('BAi Acoustics');
+    expect(logoImg).toBeInTheDocument();
+    expect(logoImg).toHaveAttribute('src', '/images/logo.gif');
+  });
+
   it('renders desktop navigation links with correct hrefs', () => {
     render(<Navbar />);
     for (const link of navLinks) {

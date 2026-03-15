@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import ScrollReveal from '@/components/ScrollReveal';
 import ServiceCard from '@/components/ServiceCard';
 import { services } from '@/lib/constants';
@@ -14,7 +15,14 @@ export default function ServicesPage() {
     <>
       {/* Page hero */}
       <section className="relative bg-[#0f1b2d] pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_20%_80%,rgba(200,165,85,0.4),transparent_50%)]" />
+        <Image
+          src="/images/services/orchestra.jpg"
+          alt="BAi services"
+          fill
+          className="object-cover opacity-20"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f1b2d]/60 to-[#0f1b2d]/90" />
         <div className="mx-auto max-w-7xl px-6 relative">
           <ScrollReveal>
             <span className="text-[#c8a555] text-xs uppercase tracking-[0.3em] font-medium">

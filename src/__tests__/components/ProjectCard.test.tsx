@@ -27,6 +27,13 @@ describe('ProjectCard', () => {
     expect(screen.getByText(category.title)).toBeInTheDocument();
   });
 
+  it('renders category image', () => {
+    render(<ProjectCard category={category} index={0} />);
+    const img = screen.getByAltText(category.title);
+    expect(img).toBeInTheDocument();
+    expect(img).toHaveAttribute('src', category.image);
+  });
+
   it('renders See More text', () => {
     render(<ProjectCard category={category} index={0} />);
     expect(screen.getByText(/See More/i)).toBeInTheDocument();
@@ -36,6 +43,7 @@ describe('ProjectCard', () => {
     for (const cat of projectCategories) {
       const { unmount } = render(<ProjectCard category={cat} index={0} />);
       expect(screen.getByText(cat.title)).toBeInTheDocument();
+      expect(screen.getByAltText(cat.title)).toBeInTheDocument();
       unmount();
     }
   });

@@ -32,9 +32,11 @@ describe('TeamMember', () => {
     expect(screen.getByText(member.title)).toBeInTheDocument();
   });
 
-  it('renders member initials', () => {
+  it('renders member photo', () => {
     render(<TeamMember member={member} index={0} />);
-    expect(screen.getByText(member.initials)).toBeInTheDocument();
+    const img = screen.getByAltText(member.name);
+    expect(img).toBeInTheDocument();
+    expect(img).toHaveAttribute('src', member.image);
   });
 
   it('renders member bio in hover overlay', () => {
@@ -42,11 +44,22 @@ describe('TeamMember', () => {
     expect(screen.getByText(member.bio)).toBeInTheDocument();
   });
 
+  it('renders member phone number', () => {
+    render(<TeamMember member={member} index={0} />);
+    expect(screen.getByText(member.phone)).toBeInTheDocument();
+  });
+
+  it('renders member email', () => {
+    render(<TeamMember member={member} index={0} />);
+    expect(screen.getByText(member.email)).toBeInTheDocument();
+  });
+
   it('renders correctly for all team members', () => {
     for (const m of teamMembers) {
       const { unmount } = render(<TeamMember member={m} index={0} />);
       expect(screen.getByText(m.name)).toBeInTheDocument();
       expect(screen.getByText(m.title)).toBeInTheDocument();
+      expect(screen.getByAltText(m.name)).toBeInTheDocument();
       unmount();
     }
   });

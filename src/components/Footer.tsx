@@ -1,6 +1,6 @@
 import { MapPin, Phone, Mail, Facebook, Instagram, Twitter } from 'lucide-react';
 import Link from 'next/link';
-import Logo from './Logo';
+import Image from 'next/image';
 import { offices, socialLinks } from '@/lib/constants';
 
 const socialIcons: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -16,7 +16,13 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         {/* Logo + tagline */}
         <div className="mb-12">
-          <Logo className="h-10 w-auto mb-4" />
+          <Image
+            src="/images/logo.gif"
+            alt="BAi Acoustics"
+            width={140}
+            height={46}
+            className="h-10 w-auto mb-4"
+          />
           <p className="text-white/50 text-sm max-w-md">
             Consultants in Acoustics, Sound Reinforcement, and Audiovisual Systems
           </p>

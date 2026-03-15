@@ -3,6 +3,7 @@ import StatsCounter from '@/components/StatsCounter';
 import ScrollReveal from '@/components/ScrollReveal';
 import { services } from '@/lib/constants';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -25,13 +26,15 @@ export default function Home() {
                   <span className="font-semibold">Since 1935</span>
                 </h2>
                 <p className="text-[#64748b] leading-relaxed mb-6">
-                  Founded by Dr. C.P. Boner, BAi has been at the forefront of acoustical consulting
-                  for over 85 years. Our expertise spans building acoustics, noise control, sound
+                  Since the time of its founding by Dr. C.P. Boner in 1935, the firm of Boner
+                  Associates has actively consulted in acoustics, noise control and sound systems
+                  for buildings. Our expertise spans building acoustics, noise control, sound
                   reinforcement systems, and comprehensive audiovisual design.
                 </p>
                 <p className="text-[#64748b] leading-relaxed mb-8">
                   From performing arts centers to corporate facilities, healthcare to education — we
-                  bring scientific precision and artistic sensibility to every project.
+                  bring scientific precision and artistic sensibility to every project. Richard Boner
+                  brings over 62 years of experience, with work on over 6,000 projects.
                 </p>
                 <Link
                   href="/history"
@@ -47,17 +50,14 @@ export default function Home() {
 
             <ScrollReveal delay={0.2}>
               <div className="relative">
-                <div className="aspect-[4/3] rounded-sm bg-gradient-to-br from-[#0f1b2d] via-[#1a3a5c] to-[#1a9aaa] overflow-hidden">
-                  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_30%_40%,rgba(200,165,85,0.4),transparent_60%)]" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-6xl font-extralight text-white/20 mb-2">BAi</div>
-                      <div className="h-px w-16 bg-[#c8a555]/40 mx-auto mb-2" />
-                      <div className="text-xs text-white/30 uppercase tracking-[0.2em]">
-                        Austin &bull; Dallas &bull; Houston
-                      </div>
-                    </div>
-                  </div>
+                <div className="aspect-[4/3] rounded-sm overflow-hidden">
+                  <Image
+                    src="/images/services/orchestra.jpg"
+                    alt="BAi acoustics consulting for performing arts"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
                 </div>
                 {/* Decorative offset border */}
                 <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#c8a555]/20 rounded-sm -z-10" />

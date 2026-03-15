@@ -26,6 +26,7 @@ export const navLinks: NavLink[] = [
 export interface HeroSlide {
   id: number;
   title: string;
+  image: string;
   gradient: string;
 }
 
@@ -33,32 +34,26 @@ export const heroSlides: HeroSlide[] = [
   {
     id: 1,
     title: 'Theater & Auditorium Acoustics',
+    image: '/images/slides/slide-1-theater.gif',
     gradient: 'from-[#0f1b2d] via-[#1a3a5c] to-[#1a9aaa]',
   },
   {
     id: 2,
     title: 'Performance Hall Design',
+    image: '/images/slides/slide-2-cafeteria.jpg',
     gradient: 'from-[#1a2744] via-[#0f1b2d] to-[#c8a555]',
   },
   {
     id: 3,
-    title: 'Transportation Facilities',
+    title: 'Broadcasting & Media Facilities',
+    image: '/images/slides/slide-3-kmfa.jpg',
     gradient: 'from-[#0f1b2d] via-[#1a9aaa] to-[#0f1b2d]',
   },
   {
     id: 4,
-    title: 'Government Architecture',
+    title: 'Transportation Facilities',
+    image: '/images/slides/slide-4-airport.jpg',
     gradient: 'from-[#1a3a5c] via-[#0f1b2d] to-[#1a9aaa]',
-  },
-  {
-    id: 5,
-    title: 'Luxury Hospitality Spaces',
-    gradient: 'from-[#0f1b2d] via-[#c8a555] to-[#1a2744]',
-  },
-  {
-    id: 6,
-    title: 'Educational Commons',
-    gradient: 'from-[#1a9aaa] via-[#0f1b2d] to-[#1a3a5c]',
   },
 ];
 
@@ -80,7 +75,9 @@ export interface Service {
   id: string;
   title: string;
   icon: string;
+  image?: string;
   items: string[];
+  subsections?: { heading: string; items: string[] }[];
 }
 
 export const services: Service[] = [
@@ -88,6 +85,7 @@ export const services: Service[] = [
     id: 'room-acoustics',
     title: 'Room Acoustics',
     icon: 'volume-2',
+    image: '/images/services/service-1.jpg',
     items: [
       'Reverberation time',
       'Configuration and geometry of surfaces',
@@ -99,6 +97,7 @@ export const services: Service[] = [
     id: 'sound-isolation',
     title: 'Sound Isolation',
     icon: 'shield',
+    image: '/images/services/service-2.jpg',
     items: [
       'Field sound isolation measurements',
       'Acoustical isolation — exterior and interior',
@@ -109,17 +108,37 @@ export const services: Service[] = [
     id: 'noise-control',
     title: 'Noise Control',
     icon: 'volume-x',
+    image: '/images/services/service-3.jpg',
     items: [
       'Sound level measurements (Outdoor - Indoor, Room-to-Room)',
       'Mechanical and Electrical Systems',
       'Environmental Noise for Buildings',
       'Construction Details',
     ],
+    subsections: [
+      {
+        heading: 'Mechanical and Electrical Systems',
+        items: [
+          'Design and architectural barriers surrounding equipment',
+          'Equipment selection criteria',
+          'Criteria for duct sizing, routing, air velocities',
+          'Vibration isolation criteria',
+        ],
+      },
+      {
+        heading: 'Environmental Noise for Buildings',
+        items: [
+          'Impact of building systems upon environment',
+          'Impact of externally generated noise upon buildings',
+        ],
+      },
+    ],
   },
   {
     id: 'sound-reinforcement',
     title: 'Sound Reinforcement System',
     icon: 'speaker',
+    image: '/images/services/service-4.jpg',
     items: [
       'Full-service Designs',
       'Sound amplification systems',
@@ -133,6 +152,7 @@ export const services: Service[] = [
     id: 'audio-visual',
     title: 'Audio Visual Systems',
     icon: 'monitor',
+    image: '/images/services/orchestra.jpg',
     items: [
       'Audiovisual Programmatic Services (Planning, Budgeting, Client education)',
       'Comprehensive Design Services',
@@ -149,20 +169,21 @@ export const services: Service[] = [
 export interface ProjectCategory {
   id: string;
   title: string;
+  image: string;
   gradient: string;
 }
 
 export const projectCategories: ProjectCategory[] = [
-  { id: 'sports', title: 'Sports, Leisure & Recreation', gradient: 'from-[#0f1b2d] to-[#1a9aaa]' },
-  { id: 'collegiate', title: 'Collegiate', gradient: 'from-[#1a3a5c] to-[#0f1b2d]' },
-  { id: 'k12', title: 'K-12', gradient: 'from-[#0f1b2d] to-[#c8a555]' },
-  { id: 'religious', title: 'Religious', gradient: 'from-[#1a9aaa] to-[#0f1b2d]' },
-  { id: 'performing-arts', title: 'Performing Arts', gradient: 'from-[#0f1b2d] via-[#1a3a5c] to-[#c8a555]' },
-  { id: 'convention', title: 'Convention Facilities', gradient: 'from-[#c8a555] to-[#0f1b2d]' },
-  { id: 'corporate-gov', title: 'Corporate & Government', gradient: 'from-[#0f1b2d] to-[#1a3a5c]' },
-  { id: 'healthcare', title: 'Healthcare', gradient: 'from-[#1a9aaa] to-[#1a3a5c]' },
-  { id: 'museums', title: 'Museums', gradient: 'from-[#0f1b2d] via-[#c8a555] to-[#1a3a5c]' },
-  { id: 'studios', title: 'Studios', gradient: 'from-[#1a3a5c] to-[#1a9aaa]' },
+  { id: 'sports', title: 'Sports, Leisure & Recreation', image: '/images/projects/sports.jpg', gradient: 'from-[#0f1b2d] to-[#1a9aaa]' },
+  { id: 'collegiate', title: 'Collegiate', image: '/images/projects/collegiate.jpg', gradient: 'from-[#1a3a5c] to-[#0f1b2d]' },
+  { id: 'k12', title: 'K-12', image: '/images/projects/k12.jpg', gradient: 'from-[#0f1b2d] to-[#c8a555]' },
+  { id: 'religious', title: 'Religious', image: '/images/projects/worship.jpg', gradient: 'from-[#1a9aaa] to-[#0f1b2d]' },
+  { id: 'performing-arts', title: 'Performing Arts', image: '/images/projects/performing-arts.jpg', gradient: 'from-[#0f1b2d] via-[#1a3a5c] to-[#c8a555]' },
+  { id: 'convention', title: 'Convention Facilities', image: '/images/projects/convention.jpg', gradient: 'from-[#c8a555] to-[#0f1b2d]' },
+  { id: 'corporate-gov', title: 'Corporate & Government', image: '/images/projects/corporate.jpg', gradient: 'from-[#0f1b2d] to-[#1a3a5c]' },
+  { id: 'healthcare', title: 'Healthcare', image: '/images/projects/healthcare.jpg', gradient: 'from-[#1a9aaa] to-[#1a3a5c]' },
+  { id: 'museums', title: 'Museums', image: '/images/projects/museums.jpg', gradient: 'from-[#0f1b2d] via-[#c8a555] to-[#1a3a5c]' },
+  { id: 'studios', title: 'Studios', image: '/images/projects/studios.jpg', gradient: 'from-[#1a3a5c] to-[#1a9aaa]' },
 ];
 
 // ─── Team ───────────────────────────────────────────────────────
@@ -172,6 +193,9 @@ export interface TeamMemberData {
   title: string;
   bio: string;
   initials: string;
+  image: string;
+  phone: string;
+  email: string;
 }
 
 export const teamMembers: TeamMemberData[] = [
@@ -181,6 +205,9 @@ export const teamMembers: TeamMemberData[] = [
     title: 'President',
     bio: 'Joined the firm in 1968 following studies in physics at the University of Texas. Attained distinction of Phi Beta Kappa honors and served a tour of duty with U.S. Naval Intelligence. Brings over 62 years of experience in acoustical consulting.',
     initials: 'RB',
+    image: '/images/team/member-1.jpg',
+    phone: '(512) 476-3464 Ext. 223',
+    email: 'richard@baiaustin.com',
   },
   {
     id: 'andy-miller',
@@ -188,6 +215,9 @@ export const teamMembers: TeamMemberData[] = [
     title: 'Director, Austin Office & Acoustician',
     bio: 'Leads the Austin headquarters office, providing expert acoustical consulting services for projects across Texas and beyond.',
     initials: 'AM',
+    image: '/images/team/member-2.jpg',
+    phone: '(512) 476-3464 Ext. 237',
+    email: 'andy@baiaustin.com',
   },
   {
     id: 'bill-hammon',
@@ -195,6 +225,9 @@ export const teamMembers: TeamMemberData[] = [
     title: 'Director, Houston Office & AV Consultant',
     bio: 'Directs the Houston office and specializes in audiovisual system design, bringing comprehensive AV expertise to every project.',
     initials: 'BH',
+    image: '/images/team/member-3.jpg',
+    phone: '(281) 813-8518',
+    email: 'bill@baiaustin.com',
   },
   {
     id: 'rob-lee',
@@ -202,6 +235,9 @@ export const teamMembers: TeamMemberData[] = [
     title: 'Director, Dallas Office & Acoustician',
     bio: 'Leads the Dallas office, providing acoustical consulting and sound system design services throughout the North Texas region.',
     initials: 'RL',
+    image: '/images/team/member-4.jpg',
+    phone: '(214) 584-6124',
+    email: 'robert@baiaustin.com',
   },
   {
     id: 'anthony-hardey',
@@ -209,6 +245,9 @@ export const teamMembers: TeamMemberData[] = [
     title: 'Acoustician',
     bio: 'Provides expert acoustical consulting services, specializing in room acoustics, noise control, and sound system design.',
     initials: 'AH',
+    image: '/images/team/member-5.jpg',
+    phone: '(214) 584-6124',
+    email: 'anthony@baiaustin.com',
   },
 ];
 
@@ -261,7 +300,7 @@ export const historyContent = {
   openingQuote:
     'One of the world\'s leading experts on underwater sound defense and was twice recognized by the United States Government...',
   founding:
-    'The firm of Boner Associates was founded by Dr. C.P. Boner in 1935. Active consultation in acoustics, noise control, and sound systems for buildings.',
+    'Since the time of its founding by Dr. C.P. Boner in 1935, the firm of Boner Associates has actively consulted in acoustics, noise control and sound systems for buildings. Design specialties include building acoustics, building noise control, sound reinforcement system design, site testing and equalization, and design of Audio and Video systems.',
   specialties: [
     'Building acoustics',
     'Building noise control',
@@ -284,18 +323,20 @@ export const historyContent = {
       'Served as president of the Acoustical Society of America',
     ],
     succession:
-      'Following his retirement as Professor Emeritus in 1970, Dr. C.P. Boner continued acoustical consulting and trained his sons, Charles Boner and Richard Boner (current Owners and Principal Consultants), until his death in 1979.',
+      'Following his retirement as Professor Emeritus in 1970, Dr. C.P. Boner continued acoustical consulting and continued the extensive training of his sons, current Owners and Principal Consultants Charles Boner and Richard Boner, in this profession until his death in 1979.',
   },
   charlesBoner: {
-    bio: 'Joined the firm in 1961 in conjunction with studies in music at the University of Texas. French horn performance with Austin and San Antonio Symphony Orchestras.',
+    bio: 'Joined the firm in 1961 in conjunction with his studies in music at the University of Texas, which included French horn performance with the Austin and San Antonio Symphony Orchestras.',
     research:
-      'During the 1960s, the firm undertook comprehensive research into the behavior of sound systems in rooms, with focus on the feedback phenomenon. This research resulted in several patents. Most audio equalizers in use today are either direct or indirect outgrowths of the technology in those patents.',
+      'It was during the decade of the 1960\'s that the firm undertook a comprehensive research project into the behavior of sound systems in rooms, with a particular focus on the phenomenon of feedback. This research culminated in the issuance of several patents and most audio equalizers in use today are either direct or indirect outgrowths of the technology contained in those patents.',
   },
   richardBoner: {
-    bio: 'Joined the firm in 1968, following studies in physics at the University of Texas. Attained distinction of Phi Beta Kappa honors. Served a tour of duty with U.S. Naval Intelligence.',
+    bio: 'Joined the firm in 1968, following his studies in physics at the University of Texas, where he attained the distinction of Phi Beta Kappa honors. Subsequently, he served a tour of duty with U.S. Naval Intelligence.',
     interests:
-      'Research continued in the area of electroacoustics. An avid opera enthusiast who has toured major European concert halls and opera houses.',
+      'Research continued in the area of electroacoustics. Richard is an avid opera enthusiast, and has toured the major European concert halls and opera houses.',
   },
+  firmInfo:
+    'The firm has been owned and operated in Austin, Texas since its founding. Richard Boner brings a total of over 62 years of experience in acoustical design disciplines, including work in conjunction with over 6,000 projects.',
   memberships: [
     'National Council of Acoustical Consultants',
     'Acoustical Society of America',

@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 import { heroSlides } from '@/lib/constants';
 
 export default function Hero() {
@@ -28,16 +29,24 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.98 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className={`absolute inset-0 bg-gradient-to-br ${heroSlides[current].gradient}`}
+          className="absolute inset-0"
         >
-          {/* Subtle pattern overlay */}
-          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_30%_40%,rgba(255,255,255,0.15),transparent_50%)]" />
-          <div className="absolute inset-0 opacity-5 bg-[linear-gradient(45deg,transparent_40%,rgba(200,165,85,0.2)_50%,transparent_60%)]" />
+          {/* Background image */}
+          <Image
+            src={heroSlides[current].image}
+            alt={heroSlides[current].title}
+            fill
+            className="object-cover"
+            priority={current === 0}
+            sizes="100vw"
+          />
+          {/* Fallback gradient overlay for dark feel */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${heroSlides[current].gradient} opacity-40`} />
         </motion.div>
       </AnimatePresence>
 
       {/* Gradient overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0f1b2d]/80 via-transparent to-[#0f1b2d]/30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0f1b2d]/80 via-[#0f1b2d]/30 to-[#0f1b2d]/50" />
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">

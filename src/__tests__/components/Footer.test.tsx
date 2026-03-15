@@ -42,6 +42,13 @@ describe('Footer', () => {
     expect(screen.getByText(/BAi, LLC/)).toBeInTheDocument();
   });
 
+  it('renders the logo image', () => {
+    render(<Footer />);
+    const logo = screen.getByAltText('BAi Acoustics');
+    expect(logo).toBeInTheDocument();
+    expect(logo).toHaveAttribute('src', '/images/logo.gif');
+  });
+
   it('renders social media links', () => {
     render(<Footer />);
     const fbLink = screen.getByRole('link', { name: /Facebook/i });

@@ -31,7 +31,7 @@ describe('History Page', () => {
 
   it('renders the founding section', () => {
     render(<HistoryPage />);
-    expect(screen.getByText(/The firm of Boner Associates was founded/i)).toBeInTheDocument();
+    expect(screen.getByText(/founding by Dr. C.P. Boner in 1935/i)).toBeInTheDocument();
   });
 
   it('renders Dr. Boner section', () => {
@@ -55,5 +55,16 @@ describe('History Page', () => {
     render(<HistoryPage />);
     expect(screen.getByText('Building acoustics')).toBeInTheDocument();
     expect(screen.getByText('Building noise control')).toBeInTheDocument();
+  });
+
+  it('renders firm info section', () => {
+    render(<HistoryPage />);
+    expect(screen.getByText(/over 62 years of experience/i)).toBeInTheDocument();
+  });
+
+  it('renders the history background image', () => {
+    render(<HistoryPage />);
+    const historyImages = screen.getAllByAltText(/BAi/i);
+    expect(historyImages.length).toBeGreaterThan(0);
   });
 });
